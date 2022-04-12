@@ -1,0 +1,47 @@
+.font-family{
+    font-family: 'Inter', cursive;
+
+}
+.container{
+    background-color: "21222A";
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    background-color: #21222A;
+}
+
+.nav-image{
+    width: 60px;
+}
+
+.matrix-table{
+    display: flex;
+    align-items: center;
+}
+
+.matrix-header{
+    align-items: center;
+    margin-left: 5%;
+}
+td{
+    background-color: #b73811;
+    color: #fff;
+    height: 100px;
+    width: 100px;
+    font-size: 50px;
+    text-align: center;
+    
+}
+
+.button-group{
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+    flex-direction: column;
+}
+.btn{
+    padding: 4px;
+    margin-top: 5px
+}
