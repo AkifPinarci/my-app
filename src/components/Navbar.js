@@ -5,8 +5,8 @@ function Navbar() {
   return (
     <nav>
       <img className="nav-image" src={logo} alt="description of image" />
-      <h3 className="font-family container">ReactFacts</h3>
-      <h4 className="font-family container">React Course - Project 1</h4>
+      <h3 className="font-family container ">Concepts of Programming Languages</h3>
+      <h4 className="font-family container container-right">Group Project Matrix Calculation - Alma Campos, Akif Pinarci</h4>
     </nav>
   );
 }

@@ -1,17 +1,25 @@
 .font-family{
     font-family: 'Inter', cursive;
+    color: #b73811;
+    margin-left: 10px;
 
 }
 .container{
     background-color: "21222A";
 }
-
+.container-right{
+    margin-left:50%;
+}
 nav{
     display: flex;
     align-items: center;
     background-color: #21222A;
 }
-
+.main{
+    background-color: #6e7181;
+    align-items: center;
+    height: 1080px;
+}
 .nav-image{
     width: 60px;
 }

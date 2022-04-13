@@ -1,4 +1,4 @@
-import React, { col, useState, useEffect } from "react";
+import React, {useState} from "react";
 
 function Matrix() {
   function createMatrix(value) {
@@ -17,6 +17,9 @@ function Matrix() {
     return result;
   }
   function addition(arr1, arr2) {
+    let start = performance.now();
+    var mark = "mark";
+    performance.mark(mark);
     var result = [];
     var arr = [];
     for (let i = 0; i < arr1.length; i++) {
@@ -26,6 +29,11 @@ function Matrix() {
       }
       result.push(arr);
     }
+    var end = "end";
+    performance.mark(end);
+    let duration = performance.now() - start;
+    console.log("Execution Time: "+ duration);
+    console.log(performance.measure("Measured Performance: ", mark, end));
     return result;
   }
   function subs(arr1, arr2) {
@@ -42,6 +50,9 @@ function Matrix() {
   }
 
   function mult(arr1, arr2) {
+    let start = performance.now();
+    var mark = "mark";
+    performance.mark(mark);
     var result = [];
     for (var i = 0; i < arr1.length; i++) {
       result[i] = [];
@@ -53,6 +64,12 @@ function Matrix() {
         result[i][j] = sum;
       }
     }
+    var end = "end";
+    performance.mark(end);
+    let duration = performance.now() - start;
+    console.log(performance.measure("Measured Performance: ", mark, end));
+
+    console.log("Execution Time: "+ duration);
     return result;
   }
 
