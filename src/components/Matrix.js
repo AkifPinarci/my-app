@@ -79,12 +79,14 @@ function Matrix() {
   const [val, setVal] = useState(true);
 
   var array1 = [
-    [2, 3, 4],
-    [1, 2, 3],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
   ];
   var array2 = [
-    [1, 1, 1],
-    [1, 5, 1],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
   ];
   return (
     <div className="matrix-table">
@@ -217,6 +219,41 @@ function Matrix() {
       </div>
       <row className="matrix-header">
         <h1>Result</h1>
+        {val
+        
+        ?
+        <div>
+          <table>
+            <tbody>
+              {array1.map((item, index) => {
+                return (
+                  <tr>
+                    {item.map((row, index) => (
+                      <td>{row}</td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        : 
+        <div>
+          <table>
+            <tbody>
+              {result.map((item, index) => {
+                return (
+                  <tr>
+                    {item.map((row, index) => (
+                      <td>{row}</td>
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        }
         <div>
           <table>
             <tbody>
