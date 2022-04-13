@@ -73,9 +73,9 @@ function Matrix() {
     return result;
   }
 
-  const [matrix1, setMatrix1] = useState([]);
-  const [matrix2, setMatrix2] = useState([]);
-  const [result, setResult] = useState([]);
+  const [matrix1, setMatrix1] = useState([[]]);
+  const [matrix2, setMatrix2] = useState([[]]);
+  const [result, setResult] = useState([[]]);
   const [val, setVal] = useState(true);
 
   var array1 = [
@@ -193,6 +193,7 @@ function Matrix() {
       </row>
       <div className="button-group">
         <button
+          disabled = {!(matrix1.length === matrix2.length && matrix1[0].length === matrix2[0].length)}
           className="btn btn-default"
           onClick={() => {
             setResult(addition(matrix1, matrix2));
@@ -220,7 +221,6 @@ function Matrix() {
       <row className="matrix-header">
         <h1>Result</h1>
         {val
-        
         ?
         <div>
           <table>
