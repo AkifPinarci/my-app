@@ -213,6 +213,14 @@ function Matrix() {
         >
           Multiplication
         </button>
+        <button
+          className="btn btn-default"
+          onClick={() => {
+            setMatrix2(result);
+          }}
+        >
+          Ans
+        </button>
       </div>
       <row className="matrix-header">
         <h1>Result</h1>
