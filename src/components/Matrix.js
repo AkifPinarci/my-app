@@ -219,7 +219,7 @@ function Matrix() {
             setMatrix2(result);
           }}
         >
-          Ans
+          Copy
         </button>
       </div>
       <row className="matrix-header">
