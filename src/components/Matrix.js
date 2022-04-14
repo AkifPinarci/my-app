@@ -31,7 +31,7 @@ function Matrix() {
 
     let duration = performance.now() - start;
     console.log("Execution Time: " + duration);
-    return result;
+    return [result, duration];
   }
 
   function mult(arr1, arr2) {
@@ -50,12 +50,13 @@ function Matrix() {
     let duration = performance.now() - start;
 
     console.log("Execution Time: " + duration);
-    return result;
+    return [result, duration];
   }
 
   const [matrix1, setMatrix1] = useState([[]]);
   const [matrix2, setMatrix2] = useState([[]]);
   const [result, setResult] = useState([[]]);
+  const [execution, setExecution] = useState(0);
   const [val, setVal] = useState(true);
 
   var array1 = [
@@ -173,26 +174,41 @@ function Matrix() {
       </row>
       <div className="button-group">
         <button
-          disabled = {!(matrix1.length === matrix2.length && matrix1[0].length === matrix2[0].length)}
+          disabled={
+            !(
+              matrix1.length === matrix2.length &&
+              matrix1[0].length === matrix2[0].length
+            )
+          }
           className="btn btn-default"
           onClick={() => {
-            setResult(addition(matrix1, matrix2));
+            setResult(addition(matrix1, matrix2)[0]);
+            setExecution(addition(matrix1, matrix2)[1]);
           }}
         >
           Addition
         </button>
         <button
+          disabled={
+            !(
+              matrix1.length === matrix2.length &&
+              matrix1[0].length === matrix2[0].length
+            )
+          }
           className="btn btn-default"
           onClick={() => {
-            setResult(subs(matrix1, matrix2));
+            setResult(subs(matrix1, matrix2)[0]);
+            setExecution(subs(matrix1, matrix2)[1]);
           }}
         >
           Substraction
         </button>
         <button
+          disabled={!(matrix1[0].length === matrix2.length)}
           className="btn btn-default"
           onClick={() => {
-            setResult(mult(matrix1, matrix2));
+            setResult(mult(matrix1, matrix2)[0]);
+            setExecution(mult(matrix1, matrix2)[1]);
           }}
         >
           Multiplication
@@ -200,58 +216,44 @@ function Matrix() {
       </div>
       <row className="matrix-header">
         <h1>Result</h1>
-        {val
-        ?
-        <div>
-          <table>
-            <tbody>
-              {array1.map((item, index) => {
-                return (
-                  <tr>
-                    {item.map((row, index) => (
-                      <td>{row}</td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        : 
-        <div>
-          <table>
-            <tbody>
-              {result.map((item, index) => {
-                return (
-                  <tr>
-                    {item.map((row, index) => (
-                      <td>{row}</td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        }
-        <div>
-          <table>
-            <tbody>
-              {result.map((item, index) => {
-                return (
-                  <tr>
-                    {item.map((row, index) => (
-                      <td>{row}</td>
-                    ))}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+        {val ? (
+          <div>
+            <table>
+              <tbody>
+                {array1.map((item, index) => {
+                  return (
+                    <tr>
+                      {item.map((row, index) => (
+                        <td>{row}</td>
+                      ))}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div>
+            <table>
+              <tbody>
+                {result.map((item, index) => {
+                  return (
+                    <tr>
+                      {item.map((row, index) => (
+                        <td>{row}</td>
+                      ))}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {/* <h4>Execution Time: {execution}</h4> */}
       </row>
     </div>
   );
+
   function addition(arr1, arr2) {
     let start = performance.now();
     var mark = "mark";
@@ -270,7 +272,7 @@ function Matrix() {
     let duration = performance.now() - start;
     console.log("Execution Time: " + duration);
     console.log(performance.measure("Measured Performance: ", mark, end));
-    return result;
+    return [result, duration];
   }
 }
 
